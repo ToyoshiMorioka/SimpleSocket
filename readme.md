@@ -10,10 +10,10 @@ This library is only local now.
 
 # Support
 * UDP(IPv4)
+* UDP(IPv6)(Not Testing)
+* TCP(IPv4)
+* TCP(IPv6)(Not Testing)
 * Data sending
 
 # Now making for...
-* UDP(IPv6)
-* TCP(IPv4)
-* TCP(IPv6)
 * Data recieving
