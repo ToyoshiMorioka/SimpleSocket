@@ -1,32 +1,30 @@
 //
-//  SimpleUDP.swift
+//  SimpleTCP.swift
 //  SimpleSocket
 //
-//  Created by MORIOKAToyoshi on 2016/08/03.
+//  Created by MORIOKAToyoshi on 2016/08/05.
 //  Copyright © 2016年 ___MORIOKAToyoshi___. All rights reserved.
 //
-// http://www.russbishop.net/swift-let-s-query-dns
 
 import Foundation
 
-struct SimpleUDP{
-    private var addressInfo:addrinfo?
+struct SimpleTCP{
+    var addressInfo:addrinfo?
     private var socketArray:[Int32] = []
-    private var isReady:Bool = false
+    var isReady:Bool = false
     
     mutating func openSocket(ipAddress:String, portNumber:String) -> Bool {
         
-        // get addressInfo
         var hints = addrinfo(
             ai_flags: 0,
             ai_family: AF_UNSPEC,
-            ai_socktype: SOCK_DGRAM,
-            ai_protocol: IPPROTO_UDP,
+            ai_socktype: SOCK_STREAM,
+            ai_protocol: IPPROTO_TCP,
             ai_addrlen: 0,
             ai_canonname: nil,
             ai_addr: nil,
             ai_next: nil)
-
+        
         var result = UnsafeMutablePointer<addrinfo>.init(nilLiteral: ())
         let error = getaddrinfo(UnsafePointer<Int8>(ipAddress.cStringUsingEncoding(NSUTF8StringEncoding)!), UnsafePointer<Int8>(portNumber.cStringUsingEncoding(NSUTF8StringEncoding)!), &hints, &result)
         
@@ -51,7 +49,7 @@ struct SimpleUDP{
         // make sockets
         var adrinf = addressInfo
         var available = true
-        var hasSocket = false;
+        var hasConnection = false;
         while(available != false){
             
             let sock = socket((adrinf?.ai_family)!, (adrinf?.ai_socktype)!, (adrinf?.ai_protocol)!)
@@ -59,8 +57,15 @@ struct SimpleUDP{
             
             if sock < 0 {
                 print("making socket error.")
+            }
+            
+            // udp = sock_dgramの時は不必要
+            let connectResult = connect(sock, UnsafePointer<sockaddr>((adrinf?.ai_addr)!), (adrinf?.ai_addrlen)!)
+            
+            if connectResult < 0 {
+                print("connect error.")
             }else{
-                hasSocket = true
+                hasConnection = true
             }
             
             if adrinf!.ai_next  == nil{
@@ -70,7 +75,7 @@ struct SimpleUDP{
             }
         }
         
-        if hasSocket {
+        if hasConnection {
             isReady = true
             return true
         }else{
@@ -90,14 +95,14 @@ struct SimpleUDP{
         var i = 0
         
         while(available != false){
-          
+            
             let sock = socketArray[i]
             
             if sock >= 0 {
                 // send data
                 sendto(sock, UnsafePointer<UInt8>(data.bytes), Int(data.length), 0, (adrinf?.ai_addr)!, (adrinf?.ai_addrlen)!)
             }
-       
+            
             if adrinf!.ai_next  == nil{
                 available = false
             }else{

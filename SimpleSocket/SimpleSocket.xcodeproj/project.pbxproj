@@ -16,8 +16,7 @@
 		BDE201351D23CA2C007AC56D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDE201331D23CA2C007AC56D /* LaunchScreen.storyboard */; };
 		BDE201401D23CA2C007AC56D /* SimpleSocketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE2013F1D23CA2C007AC56D /* SimpleSocketTests.swift */; };
 		BDE2014B1D23CA2C007AC56D /* SimpleSocketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE2014A1D23CA2C007AC56D /* SimpleSocketUITests.swift */; };
-		BDE201591D23CA51007AC56D /* SimpleUDPv4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE201581D23CA51007AC56D /* SimpleUDPv4.swift */; };
-		BDE2015B1D23CBAA007AC56D /* SimpleUDPv6.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE2015A1D23CBAA007AC56D /* SimpleUDPv6.swift */; };
+		BDFBF2841D543031008A980D /* SimpleTCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFBF2831D543031008A980D /* SimpleTCP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +52,7 @@
 		BDE201461D23CA2C007AC56D /* SimpleSocketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleSocketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDE2014A1D23CA2C007AC56D /* SimpleSocketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSocketUITests.swift; sourceTree = "<group>"; };
 		BDE2014C1D23CA2C007AC56D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDE201581D23CA51007AC56D /* SimpleUDPv4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleUDPv4.swift; sourceTree = "<group>"; };
-		BDE2015A1D23CBAA007AC56D /* SimpleUDPv6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleUDPv6.swift; sourceTree = "<group>"; };
+		BDFBF2831D543031008A980D /* SimpleTCP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTCP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +103,8 @@
 		BDE201261D23CA2C007AC56D /* SimpleSocket */ = {
 			isa = PBXGroup;
 			children = (
-				BDE201581D23CA51007AC56D /* SimpleUDPv4.swift */,
-				BDE2015A1D23CBAA007AC56D /* SimpleUDPv6.swift */,
 				BD7D97A91D517A0300D2AE35 /* SimpleUDP.swift */,
+				BDFBF2831D543031008A980D /* SimpleTCP.swift */,
 				BDE201271D23CA2C007AC56D /* AppDelegate.swift */,
 				BDE201291D23CA2C007AC56D /* ViewController.swift */,
 				BDE2012B1D23CA2C007AC56D /* Main.storyboard */,
@@ -268,11 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDE2015B1D23CBAA007AC56D /* SimpleUDPv6.swift in Sources */,
 				BDE2012A1D23CA2C007AC56D /* ViewController.swift in Sources */,
-				BDE201591D23CA51007AC56D /* SimpleUDPv4.swift in Sources */,
 				BD7D97AA1D517A0300D2AE35 /* SimpleUDP.swift in Sources */,
 				BDE201281D23CA2C007AC56D /* AppDelegate.swift in Sources */,
+				BDFBF2841D543031008A980D /* SimpleTCP.swift in Sources */,
 				BDE201301D23CA2C007AC56D /* SimpleSocket.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
