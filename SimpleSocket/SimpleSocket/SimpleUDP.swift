@@ -75,6 +75,7 @@ struct SimpleUDP{
             return true
         }else{
             isReady = false
+            closeSocket()
             return false
         }
     }

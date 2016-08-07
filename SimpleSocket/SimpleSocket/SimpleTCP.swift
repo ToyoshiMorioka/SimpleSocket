@@ -80,6 +80,7 @@ struct SimpleTCP{
             return true
         }else{
             isReady = false
+            closeSocket()
             return false
         }
     }
