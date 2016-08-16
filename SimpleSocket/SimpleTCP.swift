@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct SimpleTCP{
+public struct SimpleTCP{
     var addressInfo:addrinfo?
     private var socketArray:[Int32] = []
     var isReady:Bool = false
     
-    mutating func openSocket(ipAddress:String, portNumber:String) -> Bool {
+    public mutating func openSocket(ipAddress:String, portNumber:String) -> Bool {
         
         var hints = addrinfo(
             ai_flags: 0,
@@ -85,7 +85,7 @@ struct SimpleTCP{
         }
     }
     
-    mutating func sendData(data:NSData) -> Bool {
+    public mutating func sendData(data:NSData) -> Bool {
         
         if !isReady {
             return false
@@ -115,7 +115,7 @@ struct SimpleTCP{
         return true
     }
     
-    mutating func closeSocket(){
+    public mutating func closeSocket(){
         
         var adrinf = addressInfo
         var available = true
