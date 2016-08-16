@@ -10,11 +10,12 @@ import Foundation
 
 public struct SimpleTCP{
     var addressInfo:addrinfo?
-    private var socketArray:[Int32] = []
-    var isReady:Bool = false
+    private var socketArray:[Int32]
+    var isReady:Bool
     
     public init (){
-        
+        socketArray = []
+        isReady = false
     }
     
     public mutating func openSocket(ipAddress:String, portNumber:String) -> Bool {

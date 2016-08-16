@@ -11,11 +11,12 @@ import Foundation
 
 public struct SimpleUDP{
     private var addressInfo:addrinfo?
-    private var socketArray:[Int32] = []
-    private var isReady:Bool = false
+    private var socketArray:[Int32]
+    private var isReady:Bool
     
     public init (){
-        
+        socketArray = []
+        isReady = false
     }
     
     public mutating func openSocket(ipAddress:String, portNumber:String) -> Bool {
