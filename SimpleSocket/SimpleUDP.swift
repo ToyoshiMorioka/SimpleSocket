@@ -14,6 +14,10 @@ public struct SimpleUDP{
     private var socketArray:[Int32] = []
     private var isReady:Bool = false
     
+    public init (){
+        
+    }
+    
     public mutating func openSocket(ipAddress:String, portNumber:String) -> Bool {
         
         // get addressInfo

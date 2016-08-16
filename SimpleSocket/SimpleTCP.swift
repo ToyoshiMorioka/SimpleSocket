@@ -13,6 +13,10 @@ public struct SimpleTCP{
     private var socketArray:[Int32] = []
     var isReady:Bool = false
     
+    public init (){
+        
+    }
+    
     public mutating func openSocket(ipAddress:String, portNumber:String) -> Bool {
         
         var hints = addrinfo(
