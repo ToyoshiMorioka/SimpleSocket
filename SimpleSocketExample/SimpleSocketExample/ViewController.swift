@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     @IBAction func pushSendMessageButton(sender: AnyObject) {
         // ipv6
         //let udp = SimpleUDPv6(iPAddress: "2001:2:0:aab1::1", portNumber: 50000)
-        var udp = SimpleTCP()
+        var udp = SimpleUDP()
         
         if udp.openSocket("10.0.1.84", portNumber: "12345") {
             print("making connection success.")
