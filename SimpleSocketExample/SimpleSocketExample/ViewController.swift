@@ -20,12 +20,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func pushSendMessageButton(sender: AnyObject) {
+    @IBAction func pushSendMessageButton(_ sender: AnyObject) {
         // ipv6
         //let udp = SimpleUDPv6(iPAddress: "2001:2:0:aab1::1", portNumber: 50000)
         var udp = SimpleUDP()
         
-        if udp.openSocket("10.0.1.84", portNumber: "12345") {
+        if udp.openSocket("10.0.1.142", portNumber: "50000") {
             print("making connection success.")
         }else{
             print("making connection fail.")
@@ -34,7 +34,11 @@ class ViewController: UIViewController {
         
         // let udp = SimpleUDPv6(iPAddress: "169.254.81.219", portNumber: 50000)
         let test = "test test test test\n"
-        udp.sendData(test.dataUsingEncoding(NSUTF8StringEncoding)!)
+        if udp.sendData(test.data(using: String.Encoding.utf8)!) {
+            print("send data success.")
+        }else{
+            print("send data failt.")
+        }
         
         udp.closeSocket()
     }
