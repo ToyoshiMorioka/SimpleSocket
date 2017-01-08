@@ -4,9 +4,9 @@ This Library based on BSD Socket(Maybe...).
 This library is only local now.
 
 # Test enviroment
-* X Code 7.3.1
-* Writing with Swift 2
-* iOS 9.3
+* X Code 8.2.1
+* Writing with Swift 3
+* iOS 10.2
 
 # Support
 * UDP(IPv4)
